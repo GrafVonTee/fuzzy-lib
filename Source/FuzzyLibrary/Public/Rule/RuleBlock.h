@@ -27,6 +27,10 @@ public:
 
 	void AddRuleToList(URule* Rule);
 
+	TArray<URule*> GetRuleList();
+
+	void AppendList(TArray<URule*> OtherRuleList);
+
 	void SetAccumulation(UAccumulation* AccumulationOther);
 
 	UTerm* Accumulate(TMap<UVariable*, int32> Input);

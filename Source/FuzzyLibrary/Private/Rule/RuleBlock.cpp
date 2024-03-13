@@ -9,6 +9,16 @@ void URuleBlock::AddRuleToList(URule* Rule)
 
 }
 
+TArray<URule*> URuleBlock::GetRuleList()
+{
+	return RuleList;
+}
+
+void URuleBlock::AppendList(TArray<URule*> OtherRuleList)
+{
+	RuleList.Append(OtherRuleList);
+}
+
 void URuleBlock::SetAccumulation(UAccumulation* AccumulationOther)
 {
 	Accumulation = AccumulationOther;

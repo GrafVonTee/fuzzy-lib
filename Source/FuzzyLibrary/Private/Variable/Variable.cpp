@@ -48,6 +48,31 @@ FString UVariable::GetTermWithValue(int32 x)
 
 }
 
+TMap<FString, int32> UVariable::GetXFromDegree(const float Degree)
+{
+	TMap<FString, int32> XArray;
+	for (auto& Elem : Terms)
+	{
+		int32 MostSimilarValue = Elem.Value->LowerBound;
+		float SmallestError = FMath::Square(Degree - Elem.Value->GetDegreeOfMembership(MostSimilarValue));
+
+		for (int Value = Elem.Value->LowerBound; Value <= Elem.Value->UpperBound; ++Value)
+		{
+			float NewError = FMath::Square(Degree - Elem.Value->GetDegreeOfMembership(Value));
+
+			if (NewError <= SmallestError)
+			{
+				SmallestError = NewError;
+				MostSimilarValue = Value;
+			}
+		}
+
+		XArray.Add(Elem.Key, MostSimilarValue);
+	}
+
+	return XArray;
+}
+
 void UVariable::ClearTerms()
 {
 	Terms.Empty();

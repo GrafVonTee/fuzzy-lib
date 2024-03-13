@@ -51,6 +51,8 @@ public:
 
 	FString GetTermWithValue(int32 x);
 
+	TMap<FString, int32> GetXFromDegree(const float Degree);
+
 	UFUNCTION(BlueprintCallable, Category = "Membership")
 	void ClearTerms();
 
