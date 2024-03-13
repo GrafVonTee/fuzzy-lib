@@ -29,8 +29,11 @@ public:
 	UPROPERTY()
 	UActivation* Activation;
 
+	UPROPERTY()
+	FString RuleFormular;
+
 	UTerm* Activate(TMap<UVariable*, int32> Input);
 
-	void Set(USequence* AntecedentOther, UTerm* ConsequentOther, UActivation* ActivationOther);
+	void Set(USequence* AntecedentOther, UTerm* ConsequentOther, UActivation* ActivationOther, FString RuleFormularOther);
 	
 };

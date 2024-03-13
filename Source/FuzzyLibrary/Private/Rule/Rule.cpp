@@ -11,10 +11,11 @@ UTerm* URule::Activate(TMap<UVariable*, int32> Input)
 
 }
 
-void URule::Set(USequence* AntecedentOther, UTerm* ConsequentOther, UActivation* ActivationOther)
+void URule::Set(USequence* AntecedentOther, UTerm* ConsequentOther, UActivation* ActivationOther, FString RuleFormularOther)
 {
 	Antecedent = AntecedentOther;
 	Consequent = ConsequentOther->Copy();
 	Activation = ActivationOther;
+	RuleFormular = RuleFormularOther;
 
 }

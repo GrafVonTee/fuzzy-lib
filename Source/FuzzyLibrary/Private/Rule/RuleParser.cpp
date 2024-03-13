@@ -97,7 +97,7 @@ URule* URuleParser::ParseRule(FString Input)
 	UTerm* Consequent = TempVariable->GetTermFromMapByName(TempTermName);
 
 	Antecedent->Set(RuleCondition, Aggregation);
-	Rule->Set(Antecedent, Consequent, Activation);
+	Rule->Set(Antecedent, Consequent, Activation, Input);
 
 	return Rule;
 
