@@ -8,7 +8,6 @@ void UGaussian::MakeRange()
 {
 	Super::MakeRange();
 
-	float MaxValue = 0;
 	float TempMean = Mean - LowerBound;
 
 	for (int32 Index = 0; Index < ValueRange.Num(); ++Index)
@@ -17,16 +16,6 @@ void UGaussian::MakeRange()
 			-1 * UKismetMathLibrary::Square(Index - Mean)
 			/ (2 * Dist * Dist)
 		);
-
-		if (MaxValue < ValueRange[Index])
-		{
-			MaxValue = ValueRange[Index];
-		}
-	}
-
-	for (int32 Index = 0; Index < ValueRange.Num(); ++Index)
-	{
-		ValueRange[Index] /= MaxValue;
 	}
 }
 
